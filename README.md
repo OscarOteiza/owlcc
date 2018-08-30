@@ -2,7 +2,7 @@
 
 <img src="custom/CallCenterFlow.jpg"/>
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/tigerfarm/owlcc)
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/OscarOteiza/owlcc)
 
 When you deploy to Heroku, you will be prompted for an app name. The name needs to be unique,
 example, enter your name+cc (example: davidcc). Click Deploy app. Once the application is deployed, click Manage app.
