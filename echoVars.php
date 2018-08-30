@@ -13,7 +13,7 @@ $client = new Client($account_sid, $auth_token);
 echo "\xA", "+ Twilio PHP Helper Library Client is working.";
 //
 echo "\xA---------------------------------------";
-$workerSid = "WK10ec1823ae8a54d715ba424599ea473f";
+$workerSid = "WK7f7f36f4736bd726213081b876f6a1db";
 echo "\xA", "+ Worker SID for testing the generation of tokens: ", $workerSid;
 //
 use Twilio\Jwt\ClientToken;
