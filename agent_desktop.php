@@ -251,9 +251,6 @@ foreach ($activities as $record) {
                 var log = document.getElementById('log');
                 log.value += "\n> " + message;
                 log.scrollTop = log.scrollHeight;
-                /-------------new value added to try to transcribe---
-                echo $response;
-                /----------------------------------------------------
             }
             function sleep(milliseconds) {
                 var start = new Date().getTime();
