@@ -131,7 +131,7 @@ foreach ($activities as $record) {
                 var options = {
                     "PostWorkActivitySid": "<?= $activity['WrapUp'] ?>",
                     "Timeout": "30",
-                    "Record": "false"
+                    "Record": "true"
                 };
                 logger("Record the call: " + options.Record + ", Post Activity: WrapUp");
                 // https://www.twilio.com/docs/taskrouter/api/reservations
