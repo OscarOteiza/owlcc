@@ -10,6 +10,12 @@ echo "\xA+ Test the loading and using of the Twilio PHP helper library.";
 require __DIR__ . '/twilio-php-master/Twilio/autoload.php';
 use Twilio\Rest\Client;
 $client = new Client($account_sid, $auth_token);
+
+//------trying again ---------------------
+$twilio = new Client($sid, $token);
+//------trying again ---------------------
+
+
 echo "\xA", "+ Twilio PHP Helper Library Client is working.";
 //
 echo "\xA---------------------------------------";
