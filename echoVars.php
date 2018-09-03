@@ -11,11 +11,6 @@ require __DIR__ . '/twilio-php-master/Twilio/autoload.php';
 use Twilio\Rest\Client;
 $client = new Client($account_sid, $auth_token);
 
-//------trying again ---------------------
-$twilio = new Client($sid, $token);
-//------trying again ---------------------
-
-
 echo "\xA", "+ Twilio PHP Helper Library Client is working.";
 //
 echo "\xA---------------------------------------";
@@ -37,13 +32,6 @@ $capability->allowFetchSubresources();
 $capability->allowActivityUpdates();
 $capability->allowReservationUpdates();
 $workerToken = $capability->generateToken(28800);  // 60 * 60 * 8
-
-//------trying again ---------------------
-$recording = $twilio->recordings("RE557ce644e5ab84fa21cc21112e22c485")
-                    ->fetch();
-print($recording->callSid);
-//------trying again ---------------------
-
 // echo "\xA", "+ Worker token: ", $workerToken, "\xA";
 echo "\xA", "+ Worker token created.";
 //
