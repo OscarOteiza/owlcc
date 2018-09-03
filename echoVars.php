@@ -31,6 +31,13 @@ $capability->allowFetchSubresources();
 $capability->allowActivityUpdates();
 $capability->allowReservationUpdates();
 $workerToken = $capability->generateToken(28800);  // 60 * 60 * 8
+
+//------trying again ---------------------
+$recording = $twilio->recordings("RE557ce644e5ab84fa21cc21112e22c485")
+                    ->fetch();
+print($recording->callSid);
+//------trying again ---------------------
+
 // echo "\xA", "+ Worker token: ", $workerToken, "\xA";
 echo "\xA", "+ Worker token created.";
 //
