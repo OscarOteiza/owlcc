@@ -5,19 +5,11 @@ require __DIR__ . '/twilio-php-master/Twilio/autoload.php';
 use Twilio\Rest\Client;
 use Twilio\Jwt\TaskRouter\WorkerCapability;
 use Twilio\Jwt\ClientToken;
-//-----new value here to try to transcribe the conversation ------
-use Twilio\TwiML;
-//----------------------------------------------------------------
 
 // -------------------------------------------------------
 $account_sid = getenv("ACCOUNT_SID");
 $auth_token = getenv('AUTH_TOKEN');
 $client = new Client($account_sid, $auth_token);
-
-//-----new values to try to transcribe the conversation ------
-$response = new TwiML();
-$response->record(['timeout' => 10, 'transcribe' => 'true']);
-//----------------------------------------------------------------
 
 // -------------------------------------------------------
 $workerSid = $_REQUEST['WorkerSid'];
@@ -302,7 +294,4 @@ foreach ($activities as $record) {
         </div>
         <script type="text/javascript" src="custom/pageBottom.js"></script>
     </body>
-    /-------------new value added to try to transcribe---
-    echo $response;
-    /----------------------------------------------------
 </html>
