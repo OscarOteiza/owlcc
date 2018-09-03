@@ -7,9 +7,21 @@ use Twilio\Jwt\TaskRouter\WorkerCapability;
 use Twilio\Jwt\ClientToken;
 
 // -------------------------------------------------------
+use Twilio\TwiML;
+// -------------------------------------------------------
+
+// -------------------------------------------------------
 $account_sid = getenv("ACCOUNT_SID");
 $auth_token = getenv('AUTH_TOKEN');
 $client = new Client($account_sid, $auth_token);
+
+
+// -------------------------------------------------------
+$response = new TwiML();
+$response->record(['timeout' => 10, 'transcribe' => 'true']);
+// -------------------------------------------------------
+
+print_r($response);
 
 // -------------------------------------------------------
 $workerSid = $_REQUEST['WorkerSid'];
