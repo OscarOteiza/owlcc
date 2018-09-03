@@ -3,11 +3,20 @@
 require __DIR__ . '/twilio-php-master/Twilio/autoload.php';
 
 use Twilio\Rest\Client;
+//------trying again ---------------------
+use Twilio\TwiML;
+//------trying again ---------------------
 
 $account_sid = getenv("ACCOUNT_SID");
 $auth_token = getenv('AUTH_TOKEN');
 $client = new Client($account_sid, $auth_token);
 $workspace_sid = getenv("WORKSPACE_SID");
+
+//------trying again ---------------------
+$response = new TwiML();
+$response->record(['timeout' => 10, 'transcribe' => 'true']);
+//------trying again ---------------------
+
 $voice_workers = $client->taskrouter->v1->workspaces($workspace_sid)
         ->workers
         ->read(array(
@@ -18,6 +27,13 @@ $activities = $client->taskrouter->v1->workspaces($workspace_sid)
         ->activities
         ->read();
 $activity = [];
+
+
+//------trying again ---------------------
+echo $response;
+//------trying again ---------------------
+
+
 foreach ($activities as $record) {
     $activity[$record->friendlyName] = $record->sid;
 }
