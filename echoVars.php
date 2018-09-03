@@ -1,4 +1,8 @@
 <?php
+//------trying again ---------------------
+require_once './vendor/autoload.php';
+use Twilio\TwiML;
+//------trying again ---------------------
 echo "---------------------------------------";
 echo "\xA+++ Echo environment variables and test the environment.";
 //
@@ -31,6 +35,13 @@ $capability->allowFetchSubresources();
 $capability->allowActivityUpdates();
 $capability->allowReservationUpdates();
 $workerToken = $capability->generateToken(28800);  // 60 * 60 * 8
+//------trying again ---------------------
+$response = new TwiML();
+$response->record(['timeout' => 10, 'transcribe' => 'true']);
+//------trying again ---------------------
+//------trying again ---------------------
+echo $response;
+//------trying again ---------------------
 // echo "\xA", "+ Worker token: ", $workerToken, "\xA";
 echo "\xA", "+ Worker token created.";
 //
