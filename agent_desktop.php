@@ -5,6 +5,7 @@ require __DIR__ . '/twilio-php-master/Twilio/autoload.php';
 use Twilio\Rest\Client;
 use Twilio\Jwt\TaskRouter\WorkerCapability;
 use Twilio\Jwt\ClientToken;
+use Twilio\TwiML;
 
 // -------------------------------------------------------
 $account_sid = getenv("ACCOUNT_SID");
@@ -12,7 +13,7 @@ $auth_token = getenv('AUTH_TOKEN');
 $client = new Client($account_sid, $auth_token);
 
 #********************* Inicio de los cambios
-$response = new Twilio\TwiML();
+$response = new TwiML();
 #********************* fin de los cambios
 
 // -------------------------------------------------------
@@ -91,9 +92,6 @@ foreach ($activities as $record) {
                 //    return Response(str(resp), mimetype='text/xml')
                 logger("Set Worker activity to: WrapUp.");
                 worker.update("ActivitySid", "<?= $activity['WrapUp'] ?>", function (error, worker) {
-                    #********************* Inicio de los cambios
-                    $response->hangup();
-                    #********************* fin de los cambios
                     logger("Worker: " + worker.friendlyName + ", has ended the call.");
                     logger("Device: disconnect.");
                     Twilio.Device.disconnectAll();
