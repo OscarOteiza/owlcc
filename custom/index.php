@@ -1,6 +1,6 @@
 <?php
 // Get the PHP helper library from https://twilio.com/docs/libraries/php
-require __DIR__ . '/twilio-php-master/Twilio/autoload.php';
+require '../twilio-php-master/Twilio/autoload.php';
 
 # Start our TwiML response
 $response = new Twilio\TwiML();
