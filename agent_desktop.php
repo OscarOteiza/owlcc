@@ -11,6 +11,10 @@ $account_sid = getenv("ACCOUNT_SID");
 $auth_token = getenv('AUTH_TOKEN');
 $client = new Client($account_sid, $auth_token);
 
+#********************* Inicio de los cambios
+$response = new Twilio\TwiML();
+#********************* fin de los cambios
+
 // -------------------------------------------------------
 $workerSid = $_REQUEST['WorkerSid'];
 $client_capability = new ClientToken($account_sid, $auth_token);
@@ -29,6 +33,9 @@ $activity = [];
 foreach ($activities as $record) {
     $activity[$record->friendlyName] = $record->sid;
     $activityName[$record->sid] = $record->friendlyName;
+    #********************* Inicio de los cambios
+    $response->record();
+    #********************* fin de los cambios
 }
 ?>
 <!DOCTYPE html>
@@ -84,6 +91,9 @@ foreach ($activities as $record) {
                 //    return Response(str(resp), mimetype='text/xml')
                 logger("Set Worker activity to: WrapUp.");
                 worker.update("ActivitySid", "<?= $activity['WrapUp'] ?>", function (error, worker) {
+                    #********************* Inicio de los cambios
+                    $response->hangup();
+                    #********************* fin de los cambios
                     logger("Worker: " + worker.friendlyName + ", has ended the call.");
                     logger("Device: disconnect.");
                     Twilio.Device.disconnectAll();
