@@ -17,6 +17,10 @@ $response = new TwiML();
 #********************* fin de los cambios
 
 // -------------------------------------------------------
+#********************* Inicio de los cambios
+$response->record();
+#********************* fin de los cambios
+
 $workerSid = $_REQUEST['WorkerSid'];
 $client_capability = new ClientToken($account_sid, $auth_token);
 $client_capability->allowClientIncoming($workerSid);
@@ -34,9 +38,6 @@ $activity = [];
 foreach ($activities as $record) {
     $activity[$record->friendlyName] = $record->sid;
     $activityName[$record->sid] = $record->friendlyName;
-    #********************* Inicio de los cambios
-    $response->record();
-    #********************* fin de los cambios
 }
 ?>
 <!DOCTYPE html>
