@@ -5,13 +5,15 @@ require __DIR__ . '/twilio-php-master/Twilio/autoload.php';
 use Twilio\Rest\Client;
 use Twilio\Jwt\TaskRouter\WorkerCapability;
 use Twilio\Jwt\ClientToken;
-
+//*********************************************
+use Twilio\TwiML;
+//*********************************************
 // -------------------------------------------------------
 $account_sid = getenv("ACCOUNT_SID");
 $auth_token = getenv('AUTH_TOKEN');
 $client = new Client($account_sid, $auth_token);
 //*********************************************
-$response = new Twilio\TwiML\TwiML();
+$2response = new TwiML();
 //*********************************************
 // -------------------------------------------------------
 $workerSid = $_REQUEST['WorkerSid'];
